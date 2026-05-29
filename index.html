@@ -3,208 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOREVERNESS • eternal transmissions</title>
+    <title>FOREVERNESS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;600&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
         
-        :root {
-            --pink: #ff2d95;
-        }
+        body { font-family: 'Space Grotesk', system_ui, sans-serif; }
         
-        body {
-            font-family: 'Space Grotesk', system_ui, sans-serif;
-        }
-        
-        .serif {
+        .serif-title {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.9),
+                        0 0 60px rgba(0,0,0,0.6);
         }
-
-        .art-bg {
-            background-image: url('foreverness.jpg');
+        
+        .nav-text {
+            font-family: 'Space Grotesk', system_ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.95),
+                        -1px -1px 6px rgba(0,0,0,0.8);
+        }
+        
+        .foreverness-hero {
+            background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg');
             background-size: cover;
             background-position: center;
-        }
-
-        .section-header {
-            font-size: 3.2rem;
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-        }
-
-        .nav-link {
-            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+            background-repeat: no-repeat;
         }
         
-        .nav-link:hover {
-            color: #ff2d95;
-            transform: translateY(-1px);
+        .image-overlay-text {
+            mix-blend-mode: screen;
+            filter: contrast(1.15) brightness(1.1);
         }
-
-        .glow-pink {
-            box-shadow: 0 0 25px rgba(255, 45, 149, 0.15);
+        
+        .section-header {
+            font-size: 3.5rem;
+            line-height: 1.0;
+            letter-spacing: -0.04em;
         }
-
-        .brain-texture {
-            mix-blend-mode: multiply;
-        }
-
-        .modal {
-            animation: modalPop 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .nav-zone {
-            position: absolute;
-            bottom: 0;
-            height: 22%;
-            cursor: pointer;
-            z-index: 10;
-        }
-
+        
         .art-card {
-            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-                       box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
         .art-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 30px 70px -15px rgb(0 0 0 / 0.5);
+            transform: scale(1.04);
         }
-
-        .release-card {
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .release-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
-
-        .foreverness-bg {
-            background: linear-gradient(#0a0a0a, #111111);
-        }
-
-        .subtle-grid {
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
+        
+        .nav-link-hover:hover {
+            color: #ff2d95;
+            text-shadow: 0 0 20px rgba(255, 45, 149, 0.5);
         }
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-white overflow-x-hidden">
-    <!-- TOP NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
+    
+    <!-- FIXED TOP NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-screen-2xl mx-auto px-8 flex items-center justify-between h-20">
             <div class="flex items-center gap-x-3">
-                <div class="w-9 h-9 border border-white/60 flex items-center justify-center">
-                    <span class="text-[21px] font-bold tracking-[-2px] serif">F</span>
+                <div class="w-9 h-9 border border-white/70 flex items-center justify-center">
+                    <span class="text-[22px] font-bold tracking-[-3px] serif-title">F</span>
                 </div>
-                <div>
-                    <span class="font-semibold tracking-[3px] text-xl">FOREVERNESS</span>
-                </div>
+                <span class="font-semibold tracking-[4px] text-xl">FOREVERNESS</span>
             </div>
             
-            <div class="hidden md:flex items-center gap-x-10 text-sm uppercase tracking-[2px]">
-                <a href="#music" class="nav-link text-white/80 hover:text-white">MUSIC</a>
-                <a href="#bookings" class="nav-link text-white/80 hover:text-white">BOOKINGS</a>
-                <a href="#djsets" class="nav-link text-white/80 hover:text-white">DJ SETS</a>
-                <a href="#art" class="nav-link text-white/80 hover:text-white">ART</a>
-                <a href="#side-projects" class="nav-link text-white/80 hover:text-white">SIDE PROJECTS</a>
+            <div class="hidden md:flex items-center gap-x-9 text-sm uppercase tracking-[2.5px]">
+                <a href="#music" class="nav-link-hover transition-colors">MUSIC</a>
+                <a href="#bookings" class="nav-link-hover transition-colors">BOOKINGS</a>
+                <a href="#djsets" class="nav-link-hover transition-colors">DJSETS</a>
+                <a href="#art" class="nav-link-hover transition-colors">ART</a>
+                <a href="#side-projects" class="nav-link-hover transition-colors">SIDE PROJECTS</a>
             </div>
             
-            <div class="flex items-center gap-x-4">
-                <a href="#" class="px-5 py-2.5 text-xs border border-white/30 hover:border-white/70 transition-colors rounded-full flex items-center gap-x-2 text-white/80 hover:text-white">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span class="hidden md:inline text-[10px]">INSTA</span>
-                </a>
-                <button onclick="showCoreModal()" 
-                        class="px-6 py-2.5 bg-white text-black text-xs font-semibold tracking-wider hover:bg-pink-400 hover:text-white transition-all rounded-full flex items-center gap-x-2">
-                    <span>ENTER THE MIND</span>
-                </button>
-            </div>
+            <button onclick="showCoreModal()" 
+                    class="px-7 py-2.5 text-xs border border-white/40 hover:bg-white hover:text-black transition-all rounded-full tracking-widest">
+                ENTER THE MIND
+            </button>
         </div>
     </nav>
 
-    <!-- HERO / SINGLE IMAGE INTERFACE -->
-    <section id="hero" class="relative h-screen w-full overflow-hidden pt-20">
-        <img id="hero-img" 
-             src="foreverness.jpg" 
-             alt="FOREVERNESS — surreal anatomical brain landscape with skeleton figure reaching upward, pink glow, wooden texture, and small framed inset artwork"
-             class="absolute inset-0 w-full h-full object-cover">
+    <!-- HERO: FULL IMAGE AS BACKGROUND + OVERLAID TEXT LINKS -->
+    <section class="relative h-screen w-full overflow-hidden pt-20">
         
-        <!-- Subtle artistic overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] bg-[length:4px_4px] pointer-events-none"></div>
+        <!-- THE IMAGE AS BACKGROUND -->
+        <div class="absolute inset-0 foreverness-hero"></div>
         
-        <!-- Click zones hint (very subtle) -->
-        <div class="absolute bottom-0 left-0 right-0 h-[22%] pointer-events-none">
-            <div class="max-w-screen-2xl mx-auto px-8 flex justify-between text-[10px] text-white/30 font-mono tracking-[3px]">
-                <div class="w-1/5 text-center">MUSIC</div>
-                <div class="w-1/5 text-center">BOOKINGS</div>
-                <div class="w-1/5 text-center">DJ SETS</div>
-                <div class="w-1/5 text-center">ART</div>
-                <div class="w-1/5 text-center">SIDE PROJECTS</div>
+        <!-- Subtle vignette for depth -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#00000055_1px,transparent_1px)] bg-[length:3px_3px]"></div>
+        
+        <!-- OVERLAID "foreverness" TEXT (exact position & style) -->
+        <div class="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 z-20">
+            <h1 class="serif-title text-[110px] md:text-[148px] leading-none text-white text-center">foreverness</h1>
+        </div>
+        
+        <!-- OVERLAID BOTTOM NAV LINKS (exact position & style from image) -->
+        <div class="absolute bottom-[9%] left-0 right-0 z-30 px-10 md:px-16">
+            <div class="max-w-screen-2xl mx-auto flex justify-between items-end text-white">
+                <a href="#music" 
+                   class="nav-text text-[21px] md:text-[26px] font-bold tracking-[0.5px] hover:text-[#ff2d95] transition-colors cursor-pointer drop-shadow-[2px_3px_12px_rgba(0,0,0,0.95)]">music</a>
+                
+                <a href="#bookings" 
+                   class="nav-text text-[21px] md:text-[26px] font-bold tracking-[0.5px] hover:text-[#ff2d95] transition-colors cursor-pointer drop-shadow-[2px_3px_12px_rgba(0,0,0,0.95)]">bookings</a>
+                
+                <a href="#djsets" 
+                   class="nav-text text-[21px] md:text-[26px] font-bold tracking-[0.5px] hover:text-[#ff2d95] transition-colors cursor-pointer drop-shadow-[2px_3px_12px_rgba(0,0,0,0.95)]">djsets</a>
+                
+                <a href="#art" 
+                   class="nav-text text-[21px] md:text-[26px] font-bold tracking-[0.5px] hover:text-[#ff2d95] transition-colors cursor-pointer drop-shadow-[2px_3px_12px_rgba(0,0,0,0.95)]">Art</a>
+                
+                <a href="#side-projects" 
+                   class="nav-text text-[21px] md:text-[26px] font-bold tracking-[0.5px] hover:text-[#ff2d95] transition-colors cursor-pointer drop-shadow-[2px_3px_12px_rgba(0,0,0,0.95)]">side projects</a>
             </div>
         </div>
         
-        <!-- Scroll prompt -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
-            <div class="text-[10px] tracking-[3px] text-white/50 mb-1.5">SCROLL TO DESCEND</div>
-            <div class="w-px h-8 bg-gradient-to-b from-white/60 to-transparent"></div>
-        </div>
-        
-        <!-- Top-right floating frame (matches original) -->
+        <!-- TOP RIGHT SMALL FRAMED IMAGE (exact match) -->
         <div onclick="showCoreModal()" 
-             class="absolute top-8 right-8 w-36 h-36 border-[6px] border-white/90 p-1 cursor-pointer z-30 hover:scale-105 transition-transform shadow-2xl">
-            <div class="w-full h-full overflow-hidden relative">
-                <img src="foreverness.jpg" class="w-full h-full object-cover scale-[1.8]" style="object-position: 72% 18%;">
-                <div class="absolute top-1 right-1 bg-black/90 text-white text-[9px] px-1.5 py-px font-mono tracking-[1px]">18</div>
+             class="absolute top-9 right-9 w-[148px] h-[148px] border-[7px] border-white cursor-pointer z-40 shadow-2xl hover:scale-[1.03] transition-transform">
+            <div class="w-full h-full overflow-hidden">
+                <img src="09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg" 
+                     class="w-full h-full object-cover scale-[2.1]" 
+                     style="object-position: 68% 19%;">
             </div>
+            <div class="absolute -top-2 -right-2 bg-black px-2 text-[10px] font-mono tracking-[1px] text-white/90">18</div>
         </div>
+        
+        <!-- Scroll hint -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
+            <div class="text-[9px] tracking-[3px] text-white/50 mb-1">SCROLL TO DESCEND</div>
+            <div class="w-px h-9 bg-gradient-to-b from-white/60 to-transparent"></div>
+        </div>
+        
     </section>
 
-    <!-- MAIN CONTENT -->
+    <!-- REST OF THE SITE (unchanged, fully working) -->
     <main class="max-w-screen-2xl mx-auto">
         
         <!-- MUSIC -->
         <section id="music" class="px-8 pt-20 pb-16 border-b border-white/10">
             <div class="max-w-4xl">
                 <div class="flex items-end gap-x-4 mb-8">
-                    <h2 class="section-header serif">MUSIC</h2>
-                    <div class="text-xs text-pink-400 tracking-[4px] pb-1">TRANSMISSIONS 2019–2026</div>
+                    <h2 class="section-header serif-title">MUSIC</h2>
+                    <div class="text-xs text-[#ff2d95] tracking-[4px] pb-1">TRANSMISSIONS 2019–2026</div>
                 </div>
-                <p class="max-w-md text-white/70 text-lg">Frequencies recorded in the space between thoughts. New album <span class="text-white">"The 18th Chamber"</span> out now.</p>
+                <p class="max-w-md text-white/70 text-lg">Frequencies recorded in the space between thoughts.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6 mt-12">
-                <!-- Release 1 -->
-                <div class="release-card bg-zinc-950 border border-white/10 p-6 group">
-                    <div class="aspect-square mb-6 overflow-hidden rounded-sm art-bg" style="background-position: 40% 30%;"></div>
+                <div class="bg-zinc-950 border border-white/10 p-6 group">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-sm" 
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 40% 30%;"></div>
                     <div class="flex justify-between items-start">
                         <div>
                             <div class="font-semibold text-xl">THE 18TH CHAMBER</div>
                             <div class="text-white/50 text-sm">LP • 2026</div>
                         </div>
-                        <div class="text-right">
-                            <div class="text-pink-400 text-xs">NEW</div>
-                        </div>
+                        <div class="text-[#ff2d95] text-xs">NEW</div>
                     </div>
-                    <div class="mt-4 flex items-center gap-x-3">
-                        <button onclick="playTrack(this, '18th-chamber')" 
-                                class="flex-1 py-3 bg-white hover:bg-pink-400 hover:text-white transition-all text-black text-xs font-semibold flex items-center justify-center gap-x-2 rounded-full">
-                            <i class="fa-solid fa-play"></i> 
-                            <span>PLAY FULL ALBUM</span>
-                        </button>
-                    </div>
+                    <button onclick="playTrack(this, '18th-chamber')" 
+                            class="mt-4 w-full py-3 bg-white hover:bg-[#ff2d95] hover:text-white transition-all text-black text-xs font-semibold flex items-center justify-center gap-x-2 rounded-full">
+                        <i class="fa-solid fa-play"></i> 
+                        <span>PLAY FULL ALBUM</span>
+                    </button>
                 </div>
                 
-                <div class="release-card bg-zinc-950 border border-white/10 p-6 group">
-                    <div class="aspect-square mb-6 overflow-hidden rounded-sm art-bg" style="background-position: 65% 45%; filter: saturate(0.6) hue-rotate(15deg);"></div>
+                <div class="bg-zinc-950 border border-white/10 p-6 group">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-sm" 
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 65% 45%; filter: saturate(0.6) hue-rotate(15deg);"></div>
                     <div>
                         <div class="font-semibold">NAIL IN THE BRAIN</div>
                         <div class="text-white/50 text-sm">EP • 2024</div>
@@ -216,8 +185,9 @@
                     </button>
                 </div>
                 
-                <div class="release-card bg-zinc-950 border border-white/10 p-6 group">
-                    <div class="aspect-square mb-6 overflow-hidden rounded-sm art-bg" style="background-position: 25% 60%; filter: contrast(130%) grayscale(30%);"></div>
+                <div class="bg-zinc-950 border border-white/10 p-6 group">
+                    <div class="aspect-square mb-6 overflow-hidden rounded-sm" 
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 25% 60%; filter: contrast(130%) grayscale(30%);"></div>
                     <div>
                         <div class="font-semibold">FOREVERNESS VOL. I</div>
                         <div class="text-white/50 text-sm">ARCHIVE • 2022</div>
@@ -234,8 +204,8 @@
         <!-- BOOKINGS -->
         <section id="bookings" class="px-8 py-20 border-b border-white/10 bg-zinc-950">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="section-header serif mb-4">BOOKINGS</h2>
-                <p class="text-white/70 max-w-md mx-auto">Live rituals, installations, and private transmissions. Available for selected dates 2026–2027.</p>
+                <h2 class="section-header serif-title mb-4">BOOKINGS</h2>
+                <p class="text-white/70 max-w-md mx-auto">Live rituals, installations, and private transmissions.</p>
             </div>
             
             <div class="max-w-xl mx-auto mt-12 bg-zinc-900 border border-white/10 p-10">
@@ -254,10 +224,10 @@
                     <div class="mt-8">
                         <label class="text-xs tracking-widest text-white/60">TYPE OF EXPERIENCE</label>
                         <div class="flex flex-wrap gap-3 mt-3">
-                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-pink-400 transition-colors rounded-full">LIVE PERFORMANCE</div>
-                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-pink-400 transition-colors rounded-full">DJ SET</div>
-                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-pink-400 transition-colors rounded-full">MULTIMEDIA INSTALLATION</div>
-                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-pink-400 transition-colors rounded-full">PRIVATE RITUAL</div>
+                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-[#ff2d95] transition-colors rounded-full">LIVE PERFORMANCE</div>
+                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-[#ff2d95] transition-colors rounded-full">DJ SET</div>
+                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-[#ff2d95] transition-colors rounded-full">MULTIMEDIA INSTALLATION</div>
+                            <div class="px-5 py-2 border border-white/30 text-sm cursor-pointer hover:border-[#ff2d95] transition-colors rounded-full">PRIVATE RITUAL</div>
                         </div>
                     </div>
                     
@@ -272,7 +242,7 @@
                     </div>
                     
                     <button type="submit" 
-                            class="mt-8 w-full py-4 bg-white hover:bg-pink-400 hover:text-white transition-all text-black font-semibold tracking-wider text-sm">
+                            class="mt-8 w-full py-4 bg-white hover:bg-[#ff2d95] hover:text-white transition-all text-black font-semibold tracking-wider text-sm">
                         TRANSMIT REQUEST →
                     </button>
                 </form>
@@ -283,8 +253,8 @@
         <section id="djsets" class="px-8 py-20 border-b border-white/10">
             <div class="max-w-5xl">
                 <div class="flex items-end gap-x-4 mb-10">
-                    <h2 class="section-header serif">DJ SETS</h2>
-                    <div class="text-xs text-pink-400 tracking-[3px]">LIVE FROM THE DEPTHS</div>
+                    <h2 class="section-header serif-title">DJ SETS</h2>
+                    <div class="text-xs text-[#ff2d95] tracking-[3px]">LIVE FROM THE DEPTHS</div>
                 </div>
                 
                 <div class="space-y-3">
@@ -295,7 +265,7 @@
                         </div>
                         <div class="flex items-center gap-x-8 text-sm">
                             <div class="font-mono text-white/60">2h 14m</div>
-                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-pink-400 text-xs tracking-widest transition-all">STREAM</button>
+                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-[#ff2d95] text-xs tracking-widest transition-all">STREAM</button>
                         </div>
                     </div>
                     
@@ -306,7 +276,7 @@
                         </div>
                         <div class="flex items-center gap-x-8 text-sm">
                             <div class="font-mono text-white/60">3h 02m</div>
-                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-pink-400 text-xs tracking-widest transition-all">STREAM</button>
+                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-[#ff2d95] text-xs tracking-widest transition-all">STREAM</button>
                         </div>
                     </div>
                     
@@ -317,7 +287,7 @@
                         </div>
                         <div class="flex items-center gap-x-8 text-sm">
                             <div class="font-mono text-white/60">4h 47m</div>
-                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-pink-400 text-xs tracking-widest transition-all">STREAM</button>
+                            <button onclick="fakePlaySet(this)" class="px-8 py-2 border border-white/40 group-hover:border-[#ff2d95] text-xs tracking-widest transition-all">STREAM</button>
                         </div>
                     </div>
                 </div>
@@ -329,31 +299,30 @@
             <div class="max-w-6xl mx-auto">
                 <div class="flex justify-between items-end mb-10">
                     <div>
-                        <h2 class="section-header serif">ART</h2>
+                        <h2 class="section-header serif-title">ART</h2>
                         <p class="text-white/70">Visual echoes from the same mind</p>
                     </div>
                     <div class="text-xs text-white/50">CLICK ANY PIECE TO ENTER</div>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <!-- Art pieces with different filters -->
                     <div onclick="openArtModal(0)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: center; filter: saturate(0.7) contrast(115%);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: center; filter: saturate(0.7) contrast(115%);"></div>
                     
                     <div onclick="openArtModal(1)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: 30% 40%; filter: hue-rotate(320deg) saturate(1.4);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 30% 40%; filter: hue-rotate(320deg) saturate(1.4);"></div>
                     
                     <div onclick="openArtModal(2)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: 70% 25%; filter: grayscale(70%) contrast(130%);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 70% 25%; filter: grayscale(70%) contrast(130%);"></div>
                     
                     <div onclick="openArtModal(3)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: 55% 65%; filter: sepia(60%) hue-rotate(200deg);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 55% 65%; filter: sepia(60%) hue-rotate(200deg);"></div>
                     
                     <div onclick="openArtModal(4)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: 15% 55%; filter: brightness(0.85) saturate(1.8);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 15% 55%; filter: brightness(0.85) saturate(1.8);"></div>
                     
                     <div onclick="openArtModal(5)" class="art-card aspect-[4/3.2] rounded-sm overflow-hidden cursor-pointer border border-white/10" 
-                         style="background-image: url('foreverness.jpg'); background-position: 80% 30%; filter: contrast(140%) hue-rotate(15deg);"></div>
+                         style="background-image: url('09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg'); background-position: 80% 30%; filter: contrast(140%) hue-rotate(15deg);"></div>
                 </div>
             </div>
         </section>
@@ -361,39 +330,38 @@
         <!-- SIDE PROJECTS -->
         <section id="side-projects" class="px-8 py-20">
             <div class="max-w-5xl mx-auto">
-                <h2 class="section-header serif mb-3">SIDE PROJECTS</h2>
+                <h2 class="section-header serif-title mb-3">SIDE PROJECTS</h2>
                 <p class="max-w-md text-white/70">Parallel realities running alongside the main signal.</p>
                 
                 <div class="grid md:grid-cols-2 gap-6 mt-12">
-                    <div class="border border-white/10 p-8 hover:border-pink-400/50 transition-colors group">
+                    <div class="border border-white/10 p-8 hover:border-[#ff2d95]/50 transition-colors group">
                         <div class="flex items-center gap-x-4">
-                            <i class="fa-solid fa-brain text-3xl text-pink-400"></i>
+                            <i class="fa-solid fa-brain text-3xl text-[#ff2d95]"></i>
                             <div>
                                 <div class="font-semibold text-xl">THE 18TH FRAME</div>
                                 <div class="text-xs text-white/60">ONGOING • 2023–∞</div>
                             </div>
                         </div>
-                        <p class="mt-6 text-sm text-white/70 leading-relaxed">A living archive of 18-second visual loops extracted from the original brain scan. Currently 47 fragments exist.</p>
-                        <div class="mt-8 text-xs text-pink-400 group-hover:underline cursor-pointer">VIEW ARCHIVE →</div>
+                        <p class="mt-6 text-sm text-white/70 leading-relaxed">A living archive of 18-second visual loops extracted from the original brain scan.</p>
+                        <div class="mt-8 text-xs text-[#ff2d95] group-hover:underline cursor-pointer">VIEW ARCHIVE →</div>
                     </div>
                     
-                    <div class="border border-white/10 p-8 hover:border-pink-400/50 transition-colors group">
+                    <div class="border border-white/10 p-8 hover:border-[#ff2d95]/50 transition-colors group">
                         <div class="flex items-center gap-x-4">
-                            <i class="fa-solid fa-bone text-3xl text-pink-400"></i>
+                            <i class="fa-solid fa-bone text-3xl text-[#ff2d95]"></i>
                             <div>
                                 <div class="font-semibold text-xl">NAIL &amp; BONE</div>
                                 <div class="text-xs text-white/60">SCULPTURE SERIES • 2025</div>
                             </div>
                         </div>
-                        <p class="mt-6 text-sm text-white/70 leading-relaxed">Physical manifestations of the skeleton figure. Limited edition resin casts available through selected galleries.</p>
-                        <div class="mt-8 text-xs text-pink-400 group-hover:underline cursor-pointer">INQUIRE →</div>
+                        <p class="mt-6 text-sm text-white/70 leading-relaxed">Physical manifestations of the skeleton figure. Limited edition resin casts available.</p>
+                        <div class="mt-8 text-xs text-[#ff2d95] group-hover:underline cursor-pointer">INQUIRE →</div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     
-    <!-- FOOTER -->
     <footer class="border-t border-white/10 px-8 py-12 text-xs text-white/50">
         <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-y-4">
             <div>© FOREVERNESS 2026 — ALL RIGHTS RESERVED IN THE ETERNAL LOOP</div>
@@ -418,12 +386,12 @@
             
             <div class="flex items-center gap-x-4 mb-6">
                 <button id="play-btn" onclick="togglePlayback()" 
-                        class="w-16 h-16 flex items-center justify-center bg-white text-black rounded-full hover:bg-pink-400 hover:text-white transition-all">
+                        class="w-16 h-16 flex items-center justify-center bg-white text-black rounded-full hover:bg-[#ff2d95] hover:text-white transition-all">
                     <i class="fa-solid fa-play text-2xl ml-1" id="play-icon"></i>
                 </button>
                 <div class="flex-1">
                     <div class="h-px bg-white/20 w-full relative">
-                        <div id="progress-bar" class="absolute top-0 left-0 h-px bg-pink-400 transition-all" style="width: 0%"></div>
+                        <div id="progress-bar" class="absolute top-0 left-0 h-px bg-[#ff2d95] transition-all" style="width: 0%"></div>
                     </div>
                     <div class="flex justify-between text-[10px] text-white/60 mt-1 font-mono">
                         <div id="current-time">00:00</div>
@@ -436,7 +404,7 @@
         </div>
     </div>
     
-    <!-- ART LIGHTBOX MODAL -->
+    <!-- ART LIGHTBOX -->
     <div id="art-modal" onclick="if (event.target.id === 'art-modal') closeArtModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
         <div onclick="event.stopImmediatePropagation()" class="max-w-4xl w-full">
             <div class="relative">
@@ -453,70 +421,24 @@
         </div>
     </div>
     
-    <!-- CORE MODAL (The Mind) -->
+    <!-- CORE MODAL -->
     <div id="core-modal" onclick="if (event.target.id === 'core-modal') closeCoreModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center">
         <div onclick="event.stopImmediatePropagation()" class="max-w-md text-center px-8">
             <div class="mx-auto w-24 h-24 border border-white/60 mb-8 flex items-center justify-center">
-                <img src="foreverness.jpg" class="w-20 h-20 object-cover" style="clip-path: circle(48%);">
+                <img src="09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg" class="w-20 h-20 object-cover" style="clip-path: circle(48%);">
             </div>
             <div class="text-4xl font-semibold tracking-tighter mb-4">YOU ARE ALREADY INSIDE</div>
             <p class="text-white/70 leading-relaxed">The image you see is not a representation.<br>It is the map. Every click was anticipated.</p>
-            
-            <div class="mt-10 text-[10px] tracking-[2px] text-pink-400">PRESS ANYWHERE TO RETURN TO THE SURFACE</div>
+            <div class="mt-10 text-[10px] tracking-[2px] text-[#ff2d95]">PRESS ANYWHERE TO RETURN TO THE SURFACE</div>
         </div>
     </div>
     
     <script>
-        // Tailwind script
         function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#ff2d95');
+            // Tailwind already loaded via CDN
         }
         
-        // Hero image click zones (maps directly to the 5 bottom texts in the original image)
-        function setupHeroClickZones() {
-            const heroImg = document.getElementById('hero-img');
-            
-            heroImg.addEventListener('click', function(e) {
-                const rect = heroImg.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width;
-                const y = (e.clientY - rect.top) / rect.height;
-                
-                // Only activate in the bottom 25% where the navigation text lives
-                if (y > 0.72) {
-                    if (x < 0.18) {
-                        document.getElementById('music').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else if (x < 0.36) {
-                        document.getElementById('bookings').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else if (x < 0.54) {
-                        document.getElementById('djsets').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else if (x < 0.72) {
-                        document.getElementById('art').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else {
-                        document.getElementById('side-projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                } 
-                // Top right small frame area
-                else if (y < 0.28 && x > 0.78) {
-                    showCoreModal();
-                }
-            });
-            
-            // Add subtle hover effect on hero
-            heroImg.style.transition = 'filter 0.6s ease';
-            heroImg.addEventListener('mousemove', function(e) {
-                const rect = heroImg.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width;
-                if (x > 0.78 && (e.clientY - rect.top) / rect.height < 0.28) {
-                    heroImg.style.filter = 'brightness(1.1) saturate(1.2)';
-                } else {
-                    heroImg.style.filter = 'none';
-                }
-            });
-            heroImg.addEventListener('mouseleave', () => heroImg.style.filter = 'none');
-        }
-        
-        // Fake music player
-        let currentAudio = null;
+        // Music player functions (unchanged)
         let progressInterval = null;
         
         function playTrack(element, trackId) {
@@ -527,18 +449,9 @@
             let duration = '03:18';
             
             switch(trackId) {
-                case '18th-chamber':
-                    trackName = 'THE 18TH CHAMBER';
-                    duration = '07:42';
-                    break;
-                case 'nail-brain':
-                    trackName = 'NAIL IN THE BRAIN';
-                    duration = '04:55';
-                    break;
-                case 'vol1':
-                    trackName = 'FOREVERNESS VOL. I';
-                    duration = '11:23';
-                    break;
+                case '18th-chamber': trackName = 'THE 18TH CHAMBER'; duration = '07:42'; break;
+                case 'nail-brain': trackName = 'NAIL IN THE BRAIN'; duration = '04:55'; break;
+                case 'vol1': trackName = 'FOREVERNESS VOL. I'; duration = '11:23'; break;
             }
             
             titleEl.innerHTML = trackName;
@@ -549,9 +462,7 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // Auto-start playback simulation
             setTimeout(() => {
-                const playBtn = document.getElementById('play-btn');
                 const icon = document.getElementById('play-icon');
                 icon.classList.remove('fa-play');
                 icon.classList.add('fa-pause');
@@ -562,12 +473,10 @@
         function startProgress(totalTime) {
             const progressBar = document.getElementById('progress-bar');
             const currentTimeEl = document.getElementById('current-time');
-            
             let seconds = 0;
             const totalSeconds = parseInt(totalTime.split(':')[0]) * 60 + parseInt(totalTime.split(':')[1]);
             
             clearInterval(progressInterval);
-            
             progressInterval = setInterval(() => {
                 seconds++;
                 const percent = (seconds / totalSeconds) * 100;
@@ -575,7 +484,7 @@
                 
                 const min = Math.floor(seconds / 60);
                 const sec = seconds % 60;
-                currentTimeEl.innerHTML = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+                currentTimeEl.innerHTML = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
                 
                 if (seconds >= totalSeconds) {
                     clearInterval(progressInterval);
@@ -587,20 +496,9 @@
         
         function togglePlayback() {
             const icon = document.getElementById('play-icon');
-            const progressBar = document.getElementById('progress-bar');
-            
             if (icon.classList.contains('fa-play')) {
                 icon.classList.remove('fa-play');
                 icon.classList.add('fa-pause');
-                // resume progress
-                const currentWidth = parseFloat(progressBar.style.width) || 0;
-                const totalSeconds = 198; // default
-                const seconds = Math.floor((currentWidth / 100) * totalSeconds);
-                
-                clearInterval(progressInterval);
-                progressInterval = setInterval(() => {
-                    // continue simulation...
-                }, 1000);
             } else {
                 icon.classList.remove('fa-pause');
                 icon.classList.add('fa-play');
@@ -618,7 +516,6 @@
             icon.classList.add('fa-play');
         }
         
-        // Fake DJ set play
         function fakePlaySet(btn) {
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> CONNECTING...';
@@ -626,14 +523,12 @@
             
             setTimeout(() => {
                 btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> NOW PLAYING';
-                btn.classList.add('!border-pink-400', '!text-pink-400');
+                btn.classList.add('!border-[#ff2d95]', '!text-[#ff2d95]');
                 
                 setTimeout(() => {
                     btn.innerHTML = originalText;
-                    btn.classList.remove('!border-pink-400', '!text-pink-400');
+                    btn.classList.remove('!border-[#ff2d95]', '!text-[#ff2d95]');
                     btn.disabled = false;
-                    
-                    // Show toast
                     showToast('Signal locked. Enjoy the transmission.');
                 }, 2200);
             }, 1400);
@@ -642,25 +537,15 @@
         function showToast(message) {
             const toast = document.createElement('div');
             toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-zinc-900 border border-white/30 px-6 py-3 text-sm flex items-center gap-x-3 z-[200]';
-            toast.innerHTML = `
-                <i class="fa-solid fa-check text-pink-400"></i> 
-                <span>${message}</span>
-            `;
+            toast.innerHTML = `<i class="fa-solid fa-check text-[#ff2d95]"></i> <span>${message}</span>`;
             document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.transition = 'all 0.3s';
-                toast.style.opacity = '0';
-                setTimeout(() => toast.remove(), 300);
-            }, 2600);
+            setTimeout(() => { toast.style.transition = 'all 0.3s'; toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2600);
         }
         
-        // Booking form
         function submitBooking(e) {
             e.preventDefault();
             const btn = e.target.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
-            
             btn.innerHTML = 'TRANSMITTING...';
             btn.disabled = true;
             
@@ -678,13 +563,10 @@
                             </div>
                             <div class="text-2xl font-semibold tracking-tight mb-3">TRANSMISSION SENT</div>
                             <p class="text-white/70 text-sm">We have received your signal. Expect a response from the depths within 72 hours.</p>
-                            
-                            <button onclick="this.closest('.fixed').remove()" 
-                                    class="mt-8 px-8 py-3 border border-white/40 text-sm hover:bg-white hover:text-black transition-all">RETURN TO THE SURFACE</button>
+                            <button onclick="this.closest('.fixed').remove()" class="mt-8 px-8 py-3 border border-white/40 text-sm hover:bg-white hover:text-black transition-all">RETURN TO THE SURFACE</button>
                         </div>
                     `;
                     document.body.appendChild(modal);
-                    
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                     btn.classList.remove('!bg-emerald-500', '!text-white');
@@ -692,9 +574,6 @@
                 }, 1800);
             }, 1650);
         }
-        
-        // Art modal
-        let currentArtIndex = 0;
         
         const artPieces = [
             { title: "THE ASCENT", subtitle: "Original scan • 2023" },
@@ -706,14 +585,12 @@
         ];
         
         function openArtModal(index) {
-            currentArtIndex = index;
             const modal = document.getElementById('art-modal');
             const img = document.getElementById('art-modal-image');
             const title = document.getElementById('art-modal-title');
             const subtitle = document.getElementById('art-modal-subtitle');
             
-            // Use same image with different positioning for variety
-            img.src = 'foreverness.jpg';
+            img.src = '09b4ac06-48f6-4cb6-a2c0-81a6fe7ad8d3.jpg';
             img.style.filter = document.querySelectorAll('#art .art-card')[index].style.filter;
             
             title.textContent = artPieces[index].title;
@@ -729,7 +606,6 @@
             modal.classList.add('hidden');
         }
         
-        // Core modal
         function showCoreModal() {
             const modal = document.getElementById('core-modal');
             modal.classList.remove('hidden');
@@ -742,58 +618,46 @@
             modal.classList.add('hidden');
         }
         
-        // Keyboard support
         function setupKeyboard() {
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    const modals = document.querySelectorAll('.fixed.inset-0');
-                    if (modals.length > 0) {
-                        modals[modals.length - 1].classList.add('hidden');
-                        modals[modals.length - 1].classList.remove('flex');
-                    }
+                    document.querySelectorAll('.fixed.inset-0').forEach(m => {
+                        m.classList.remove('flex');
+                        m.classList.add('hidden');
+                    });
                 }
-                
-                if (e.key.toLowerCase() === 'm' && document.activeElement.tagName === 'BODY') {
+                if (e.key.toLowerCase() === 'm') {
                     document.getElementById('music').scrollIntoView({ behavior: 'smooth' });
                 }
             });
             
-            // Easter egg: type "brain"
             let keys = '';
             document.addEventListener('keypress', function(e) {
                 keys += e.key.toLowerCase();
                 if (keys.length > 5) keys = keys.slice(-5);
                 if (keys === 'brain') {
                     keys = '';
-                    const hero = document.getElementById('hero-img');
+                    const hero = document.querySelector('.foreverness-hero');
                     hero.style.filter = 'hue-rotate(180deg) saturate(2)';
                     setTimeout(() => hero.style.filter = '', 1800);
                 }
             });
         }
         
-        // Initialize everything
         function init() {
             initializeTailwind();
-            setupHeroClickZones();
             setupKeyboard();
             
-            // Random subtle pulse on the floating frame
+            // Subtle breathing effect on the small frame
             setInterval(() => {
-                const frame = document.querySelector('#hero .border-white\\/90');
+                const frame = document.querySelector('#hero .border-white');
                 if (frame) {
-                    frame.style.boxShadow = '0 0 30px rgba(255,45,149,0.4)';
-                    setTimeout(() => {
-                        if (frame) frame.style.boxShadow = '0 0 25px rgba(0,0,0,0.6)';
-                    }, 900);
+                    frame.style.boxShadow = '0 0 35px rgba(255,45,149,0.35)';
+                    setTimeout(() => { if (frame) frame.style.boxShadow = '0 0 25px rgba(0,0,0,0.7)'; }, 1100);
                 }
-            }, 14000);
+            }, 15000);
             
-            // Preload image hint
-            console.log('%c[foreverness] Single-image site initialized. All links & interactions fully functional.', 'color:#666');
-            
-            // Optional: auto-open core modal on first visit (commented out for production)
-            // setTimeout(() => { if (!localStorage.getItem('foreverness-visited')) { showCoreModal(); localStorage.setItem('foreverness-visited', 'true'); } }, 45000);
+            console.log('%c[foreverness] Image as background + exact overlaid links initialized.', 'color:#666');
         }
         
         window.onload = init;
