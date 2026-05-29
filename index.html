@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOREVERNESS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap');
-        
         @font-face {
             font-family: 'Zai Ucrania';
             src: url('Zai-Ucrania.woff2') format('woff2');
@@ -40,26 +37,190 @@
         }
         
         .modal {
-            animation: fadeInScale 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: fadeInScale 0.35s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
         @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.92); }
+            from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
         
-        .foreverness-text {
-            font-family: 'Zai Ucrania', 'Playfair Display', Georgia, serif;
+        .zai {
+            font-family: 'Zai Ucrania', Georgia, serif;
             font-weight: 700;
-            letter-spacing: -0.05em;
+            letter-spacing: -0.04em;
         }
     </style>
 </head>
 <body>
     <!-- THE IMAGE IS THE ENTIRE SITE -->
-    <img id="main-image" 
-         src="image.png" 
-         alt="FOREVERNESS — the complete artwork">
+    <img id="main-image" src="image.png" alt="FOREVERNESS">
+    
+    <!-- Clickable zones matching the text in the image -->
+    <!-- music -->
+    <div class="clickable-zone" style="left:2%; bottom:5%; width:16%; height:20%;" onclick="openModal('music')"></div>
+    <!-- bookings -->
+    <div class="clickable-zone" style="left:20%; bottom:5%; width:16%; height:20%;" onclick="openModal('bookings')"></div>
+    <!-- djsets -->
+    <div class="clickable-zone" style="left:38%; bottom:5%; width:16%; height:20%;" onclick="openModal('djsets')"></div>
+    <!-- Art -->
+    <div class="clickable-zone" style="left:56%; bottom:5%; width:14%; height:20%;" onclick="openModal('art')"></div>
+    <!-- side projects -->
+    <div class="clickable-zone" style="left:72%; bottom:5%; width:26%; height:20%;" onclick="openModal('side')"></div>
+    
+    <!-- Top-right frame (18) -->
+    <div class="clickable-zone" style="top:6%; right:4%; width:12%; height:22%;" onclick="openModal('core')"></div>
+    
+    <!-- Center "foreverness" (easter egg) -->
+    <div class="clickable-zone" style="left:32%; top:32%; width:36%; height:22%;" onclick="triggerEffect()"></div>
+
+    <!-- MINIMAL MODALS -->
+    <div id="modal" onclick="closeModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" class="bg-zinc-950 border border-white/20 max-w-sm w-full mx-4 p-9 text-center">
+            
+            <div id="modal-content"></div>
+            
+            <button onclick="closeModal()" 
+                    class="mt-8 text-xs tracking-[2px] text-white/50 hover:text-white">RETURN TO THE IMAGE</button>
+        </div>
+    </div>
+
+    <script>
+        function setupClicks() {
+            const img = document.getElementById('main-image');
+            
+            img.addEventListener('click', function(e) {
+                const rect = img.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                if (y > 80) {
+                    if (x < 18) openModal('music');
+                    else if (x < 36) openModal('bookings');
+                    else if (x < 54) openModal('djsets');
+                    else if (x < 70) openModal('art');
+                    else openModal('side');
+                } else if (y < 26 && x > 80) {
+                    openModal('core');
+                } else if (y > 30 && y < 58 && x > 30 && x < 70) {
+                    triggerEffect();
+                }
+            });
+            
+            // Hover feedback
+            img.addEventListener('mousemove', function(e) {
+                const rect = img.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                const isHot = (y > 80) || (y < 26 && x > 80) || (y > 30 && y < 58 && x > 30 && x < 70);
+                img.style.filter = isHot ? 'brightness(1.1) saturate(1.2)' : 'none';
+            });
+            
+            img.addEventListener('mouseleave', () => img.style.filter = 'none');
+        }
+        
+        function openModal(type) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            
+            let html = '';
+            
+            if (type === 'music') {
+                html = `
+                    <div class="zai text-6xl mb-2">MUSIC</div>
+                    <div class="text-xs text-white/50 tracking-[3px]">TRANSMISSIONS 2019–2026</div>
+                    <div class="mt-8 text-sm text-white/70">Frequencies recorded in the space between thoughts.</div>
+                `;
+            } else if (type === 'bookings') {
+                html = `
+                    <div class="zai text-6xl mb-2">BOOKINGS</div>
+                    <div class="text-xs text-white/50 tracking-[3px]">LIVE RITUALS &amp; INSTALLATIONS</div>
+                    <div class="mt-8 text-sm text-white/70">Available for selected dates 2026–2027.</div>
+                `;
+            } else if (type === 'djsets') {
+                html = `
+                    <div class="zai text-6xl mb-2">DJ SETS</div>
+                    <div class="text-xs text-white/50 tracking-[3px]">LIVE FROM THE DEPTHS</div>
+                    <div class="mt-8 text-sm text-white/70">The Staircase Mix • Brainwave #07 • Residency Closing</div>
+                `;
+            } else if (type === 'art') {
+                html = `
+                    <div class="zai text-6xl mb-2">ART</div>
+                    <div class="text-xs text-white/50 tracking-[3px]">VISUAL ECHOES</div>
+                    <div class="mt-8 text-sm text-white/70">Click any piece in the archive to enter.</div>
+                `;
+            } else if (type === 'side') {
+                html = `
+                    <div class="zai text-6xl mb-2">SIDE PROJECTS</div>
+                    <div class="text-xs text-white/50 tracking-[3px]">PARALLEL REALITIES</div>
+                    <div class="mt-8 text-sm text-white/70">The 18th Frame • Nail &amp; Bone</div>
+                `;
+            } else if (type === 'core') {
+                html = `
+                    <div class="mx-auto w-16 h-16 border border-white/60 mb-6 flex items-center justify-center">
+                        <img src="image.png" class="w-12 h-12 object-cover" style="clip-path: circle(48%);">
+                    </div>
+                    <div class="zai text-3xl">YOU ARE ALREADY INSIDE</div>
+                    <div class="mt-4 text-xs text-white/50">The image is the map.</div>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        function triggerEffect() {
+            const img = document.getElementById('main-image');
+            img.style.transition = 'filter 1.4s ease';
+            img.style.filter = 'hue-rotate(190deg) saturate(2.2) brightness(1.25)';
+            
+            setTimeout(() => {
+                img.style.filter = 'none';
+                setTimeout(() => img.style.transition = '', 600);
+            }, 1600);
+            
+            // light particles
+            for (let i = 0; i < 9; i++) {
+                const p = document.createElement('div');
+                p.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:${Math.random()*100}vh;width:3px;height:3px;background:white;border-radius:50%;pointer-events:none;z-index:90;opacity:${Math.random()*0.6+0.3}`;
+                document.body.appendChild(p);
+                setTimeout(() => {
+                    p.style.transition = 'all 1.6s ease-out';
+                    p.style.transform = `translate(${Math.random()*180-90}px, ${Math.random()*180-90}px)`;
+                    p.style.opacity = '0';
+                    setTimeout(() => p.remove(), 1800);
+                }, 30);
+            }
+        }
+        
+        function init() {
+            setupClicks();
+            
+            // Keyboard: press "f" for full immersion
+            document.addEventListener('keydown', e => {
+                if (e.key.toLowerCase() === 'f') {
+                    const img = document.getElementById('main-image');
+                    img.style.transition = 'filter 2.2s ease';
+                    img.style.filter = 'contrast(1.35) saturate(1.7)';
+                    setTimeout(() => img.style.filter = 'none', 2800);
+                }
+            });
+            
+            console.log('%c[foreverness] Pure image site ready. Click the text.', 'color:#555');
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>         alt="FOREVERNESS — the complete artwork">
     
     <!-- Invisible clickable hotspots (match image text positions) -->
     <!-- Music -->
